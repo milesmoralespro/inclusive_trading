@@ -49,7 +49,7 @@ export default function Home() {
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Expert Financial Assets Solutions
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                <p className="mx-auto max-w-[700px] text-gray-500 text-sm sm:text-base md:text-xl dark:text-gray-400">
                   Accurate, reliable, and professional financial solutions for all your needs.
                 </p>
               </motion.div>
@@ -70,7 +70,7 @@ export default function Home() {
         >
           <div className="container px-4 md:px-6">
             <motion.h2 
-              className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
+              className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
               variants={fadeInUp}
             >
               Our Services
@@ -81,50 +81,24 @@ export default function Home() {
               initial="initial"
               animate="animate"
             >
-              <motion.div variants={fadeInUp}>
-                <Card>
-                  <CardHeader>
-                    <Building2 className="w-8 h-8 mb-2" />
-                    <CardTitle>IEPF claim - Recovery of shares</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Expert assistance in recovering shares from the Investor Education and Protection Fund.</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <Card>
-                  <CardHeader>
-                    <BarChart className="w-8 h-8 mb-2" />
-                    <CardTitle>Wealth Management</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Comprehensive wealth management services to help you grow and protect your assets.</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <Card>
-                  <CardHeader>
-                    <FileCheck className="w-8 h-8 mb-2" />
-                    <CardTitle>Audit & Assurance</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Thorough audit and assurance services to ensure financial accuracy and compliance.</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-              <motion.div variants={fadeInUp}>
-                <Card>
-                  <CardHeader>
-                    <Briefcase className="w-8 h-8 mb-2" />
-                    <CardTitle>Financial Consultancy</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p>Expert financial advice and consultancy services for individuals and businesses.</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              {[
+                { icon: Building2, title: "IEPF claim - Recovery of shares", description: "Expert assistance in recovering shares from the Investor Education and Protection Fund." },
+                { icon: BarChart, title: "Wealth Management", description: "Comprehensive wealth management services to help you grow and protect your assets." },
+                { icon: FileCheck, title: "Audit & Assurance", description: "Thorough audit and assurance services to ensure financial accuracy and compliance." },
+                { icon: Briefcase, title: "Financial Consultancy", description: "Expert financial advice and consultancy services for individuals and businesses." },
+              ].map((service, index) => (
+                <motion.div key={index} variants={fadeInUp}>
+                  <Card>
+                    <CardHeader>
+                      <service.icon className="w-8 h-8 mb-2" />
+                      <CardTitle className="text-lg sm:text-xl">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm sm:text-base">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </motion.section>
@@ -144,64 +118,32 @@ export default function Home() {
               animate="animate"
             >
               <motion.div className="space-y-4" variants={fadeInUp}>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">About Inclusive Trading</h2>
-                <p className="text-gray-500 dark:text-gray-400">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl">About Inclusive Trading</h2>
+                <p className="text-gray-500 text-sm sm:text-base dark:text-gray-400">
                   With over 20 years of experience, Inclusive Trading has been providing accurate and reliable financial
                   solutions across the country. Our team of certified professionals combines local market knowledge with
                   industry-leading expertise to deliver services you can trust.
                 </p>
-                <ul className="grid gap-2">
-                  <li className="flex items-center">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="none"
-                      height="24"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Certified Financial Professionals
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="none"
-                      height="24"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Comprehensive Financial Reports
-                  </li>
-                  <li className="flex items-center">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="none"
-                      height="24"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Fast Turnaround Times
-                  </li>
+                <ul className="grid gap-2 text-sm sm:text-base">
+                  {["Certified Financial Professionals", "Comprehensive Financial Reports", "Fast Turnaround Times"].map((item, index) => (
+                    <li key={index} className="flex items-center">
+                      <svg
+                        className="w-4 h-4 mr-2"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </motion.div>
               <motion.div className="flex justify-center" variants={fadeInUp}>
@@ -226,7 +168,7 @@ export default function Home() {
         >
           <div className="container px-4 md:px-6">
             <motion.h2 
-              className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
+              className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8"
               variants={fadeInUp}
             >
               Our Location
@@ -236,7 +178,7 @@ export default function Home() {
               variants={fadeInUp}
             >
               <a href={mapUrl} target="_blank" rel="noopener noreferrer">
-                <Image
+                <img
                   src={`https://maps.googleapis.com/maps/api/staticmap?center=51.5074,0.1278&zoom=13&size=600x300&maptype=roadmap&markers=color:green%7C51.5074,0.1278&key=YOUR_GOOGLE_MAPS_API_KEY`}
                   alt="Inclusive Trading Location"
                   className="w-full h-full object-cover"
@@ -301,7 +243,6 @@ export default function Home() {
                 initial={{ color: "#FFFFFF" }}
                 whileHover={{ color: "#4285F4" }}
                 transition={{ duration: 0.3  }}
-              
               >
                 <Phone className="w-6 h-6" />
               </motion.div>
@@ -314,18 +255,18 @@ export default function Home() {
       <AnimatePresence>
         {isContactOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white p-8 rounded-lg w-full max-w-md"
+              className="bg-white p-6 sm:p-8 rounded-lg w-full max-w-md"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
             >
-              <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+              <h2 className="text-xl sm:text-2xl font-bold mb-4">Contact Us</h2>
               <form className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
@@ -334,6 +275,7 @@ export default function Home() {
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
                   <Input id="email" type="email" placeholder="your@email.com" />
+                
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>

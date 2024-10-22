@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Building2, BarChart, FileCheck, Briefcase, Phone, Mail } from "lucide-react"
+import Image from 'next/image'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -204,7 +205,7 @@ export default function Home() {
                 </ul>
               </motion.div>
               <motion.div className="flex justify-center" variants={fadeInUp}>
-                <img
+                <Image
                   alt="Team of financial experts"
                   className="aspect-video overflow-hidden rounded-xl object-cover object-center"
                   height="310"

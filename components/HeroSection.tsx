@@ -20,29 +20,29 @@ const staggerChildren = {
 export default function HeroSection({ toggleContact }: { toggleContact: () => void }) {
   return (
     <motion.section 
-      className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-green-100"
+      className="w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-green-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 sm:px-6 mx-auto max-w-7xl">
         <motion.div 
-          className="flex flex-col items-center space-y-4 text-center"
+          className="flex flex-col items-center space-y-6 text-center"
           variants={staggerChildren}
           initial="initial"
           animate="animate"
         >
-          <motion.div className="space-y-2" variants={fadeInUp}>
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+          <motion.div className="space-y-4" variants={fadeInUp}>
+            <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               Expert Financial Assets Solutions
             </h1>
-            <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+            <p className="mx-auto max-w-[700px] text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 dark:text-gray-400">
               Accurate, reliable, and professional financial solutions for all your needs.
             </p>
           </motion.div>
-          <motion.div className="space-x-4" variants={fadeInUp}>
-            <Button onClick={toggleContact}>Get a Quote</Button>
-            <Button variant="outline">Learn More</Button>
+          <motion.div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4" variants={fadeInUp}>
+            <Button onClick={toggleContact} className="w-full sm:w-auto">Get a Quote</Button>
+            <Button variant="outline" className="w-full sm:w-auto">Learn More</Button>
           </motion.div>
         </motion.div>
       </div>

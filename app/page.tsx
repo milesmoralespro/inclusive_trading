@@ -105,59 +105,61 @@ export default function Home() {
 
         {/* About Section */}
         <motion.section 
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+      className="w-full py-12 md:py-24 lg:py-32 bg-gray-100"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+    >
+      <div className="container px-4 md:px-6">
+        <motion.div 
+          className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start"
+          variants={staggerChildren}
+          initial="initial"
+          animate="animate"
         >
-          <div className="container px-4 md:px-6">
-            <motion.div 
-              className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center"
-              variants={staggerChildren}
-              initial="initial"
-              animate="animate"
-            >
-              <motion.div className="space-y-4" variants={fadeInUp}>
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl">About Inclusive Trading</h2>
-                <p className="text-gray-500 text-sm sm:text-base dark:text-gray-400">
-                  With over 20 years of experience, Inclusive Trading has been providing accurate and reliable financial
-                  solutions across the country. Our team of certified professionals combines local market knowledge with
-                  industry-leading expertise to deliver services you can trust.
-                </p>
-                <ul className="grid gap-2 text-sm sm:text-base">
-                  {["Certified Financial Professionals", "Comprehensive Financial Reports", "Fast Turnaround Times"].map((item, index) => (
-                    <li key={index} className="flex items-center">
-                      <svg
-                        className="w-4 h-4 mr-2"
-                        fill="none"
-                        height="24"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-              <motion.div className="flex justify-center" variants={fadeInUp}>
-                <Image
-                  alt="Team of financial experts"
-                  className="aspect-video overflow-hidden rounded-xl object-cover object-center"
-                  height="310"
-                  src="/placeholder.svg?height=310&width=550"
-                  width="550"
-                />
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.section>
+          <motion.div className="space-y-4" variants={fadeInUp}>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl">About Inclusive Trading</h2>
+            <p className="text-gray-500 text-sm sm:text-base dark:text-gray-400">
+              With over 20 years of experience, Inclusive Trading has been providing accurate and reliable financial
+              solutions across the country. Our team of certified professionals combines local market knowledge with
+              industry-leading expertise to deliver services you can trust.
+            </p>
+            <ul className="grid gap-2 text-sm sm:text-base">
+              {["Certified Financial Professionals", "Comprehensive Financial Reports", "Fast Turnaround Times"].map((item, index) => (
+                <li key={index} className="flex items-center">
+                  <svg
+                    className="w-4 h-4 mr-2 flex-shrink-0"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span className="flex-1">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+          <motion.div className="flex justify-center lg:justify-end" variants={fadeInUp}>
+            <div className="relative w-full max-w-[550px] aspect-video">
+              <Image
+                alt="Team of financial experts"
+                src="/placeholder.svg?height=310&width=550"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-xl"
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.section>
 
         {/* Location Section */}
         <motion.section 

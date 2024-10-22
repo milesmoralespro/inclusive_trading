@@ -9,7 +9,9 @@ import { Building2, Menu, X } from "lucide-react"
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(prevState => !prevState)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,7 +27,7 @@ export default function Navbar() {
   const fadeInUp = {
     initial: { opacity: 0, y: -20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.3 }
   }
 
   const staggerChildren = {
@@ -38,55 +40,64 @@ export default function Navbar() {
 
   return (
     <motion.header 
-      className="px-4 lg:px-6 h-14 flex items-center border-b"
+      className="px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between border-b bg-white relative z-50"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <Link className="flex items-center justify-center" href="#">
         <Building2 className="h-6 w-6" />
-        <span className="ml-2 text-lg font-bold">Inclusive Trading</span>
+        <span className="ml-2 text-base sm:text-lg font-bold">Inclusive Trading</span>
       </Link>
-      <nav className="ml-auto hidden md:flex gap-4 sm:gap-6">
-        <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+      <nav className="hidden md:flex items-center gap-1 sm:gap-2 lg:gap-4">
+        <Link className="text-sm font-medium hover:underline underline-offset-4 px-2 py-1" href="#">
           Home
         </Link>
-        <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+        <Link className="text-sm font-medium hover:underline underline-offset-4 px-2 py-1" href="#">
           Services
         </Link>
-        <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+        <Link className="text-sm font-medium hover:underline underline-offset-4 px-2 py-1" href="#">
           About
         </Link>
-        <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+        <Link className="text-sm font-medium hover:underline underline-offset-4 px-2 py-1" href="#">
           Become Associate
         </Link>
-        <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+        <Link className="text-sm font-medium hover:underline underline-offset-4 px-2 py-1" href="#">
           Contact
         </Link>
       </nav>
-      <Button className="md:hidden ml-auto" variant="ghost" size="icon" onClick={toggleMobileMenu}>
-        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      <Button className="md:hidden" variant="ghost" size="sm" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </Button>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.nav
-            className="md:hidden absolute top-14 left-0 right-0 bg-white z-50 border-b"
+            className="absolute top-full left-0 right-0 bg-white z-50 border-b shadow-lg md:hidden"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.div className="flex flex-col p-4 space-y-2" variants={staggerChildren}>
-              <motion.a variants={fadeInUp} className="text-sm font-medium hover:underline underline-offset-4" href="#">
+            <motion.div 
+              className="flex flex-col p-4 space-y-3" 
+              variants={staggerChildren}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.a variants={fadeInUp} className="text-sm font-medium hover:bg-gray-100 rounded-md px-3 py-2 transition-colors" href="#">
                 Home
               </motion.a>
-              <motion.a variants={fadeInUp} className="text-sm font-medium hover:underline underline-offset-4" href="#">
+              <motion.a variants={fadeInUp} className="text-sm font-medium hover:bg-gray-100 rounded-md px-3 py-2 transition-colors" href="#">
                 Services
               </motion.a>
-              <motion.a variants={fadeInUp} className="text-sm font-medium hover:underline underline-offset-4" href="#">
+              <motion.a variants={fadeInUp} className="text-sm font-medium hover:bg-gray-100 rounded-md px-3 py-2 transition-colors" href="#">
                 About
               </motion.a>
-              <motion.a variants={fadeInUp} className="text-sm font-medium hover:underline underline-offset-4" href="#">
+              <motion.a variants={fadeInUp} className="text-sm font-medium hover:bg-gray-100 rounded-md px-3 py-2 transition-colors" href="#">
+                Become Associate
+              </motion.a>
+              <motion.a variants={fadeInUp} className="text-sm font-medium hover:bg-gray-100 rounded-md px-3 py-2 transition-colors" href="#">
                 Contact
               </motion.a>
             </motion.div>

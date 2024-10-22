@@ -236,7 +236,7 @@ export default function Home() {
               variants={fadeInUp}
             >
               <a href={mapUrl} target="_blank" rel="noopener noreferrer">
-                <img
+                <Image
                   src={`https://maps.googleapis.com/maps/api/staticmap?center=51.5074,0.1278&zoom=13&size=600x300&maptype=roadmap&markers=color:green%7C51.5074,0.1278&key=YOUR_GOOGLE_MAPS_API_KEY`}
                   alt="Inclusive Trading Location"
                   className="w-full h-full object-cover"
